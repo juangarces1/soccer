@@ -8,6 +8,11 @@ namespace Soccer.Web.Helpers
 {
     public interface IConverterHelper
     {
+
+        PredictionResponse ToPredictionResponse(PredictionEntity predictionEntity);
+
+        MatchResponse ToMatchResponse(MatchEntity matchEntity);
+
         TeamEntity ToTeamEntity(TeamViewModel model, string path, bool isNew);
 
         TeamViewModel ToTeamViewModel(TeamEntity teamEntity);

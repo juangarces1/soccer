@@ -8,8 +8,9 @@
 
         public string LogoPath { get; set; }
 
+        
         public string LogoFullPath => string.IsNullOrEmpty(LogoPath)
-          ? "https://soccerweb0.azurewebsites.net//images/noimage.png"
-          : $"https://soccerweb0.azurewebsites.net{LogoPath.Substring(1)}";
+           ? "https://SoccerWeb4.azurewebsites.net//images/noimage.png"
+           : $"https://SoccerWeb4.azurewebsites.net/images/Teams/{Name}.jpg";
     }
 }

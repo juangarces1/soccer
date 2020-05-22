@@ -37,6 +37,11 @@ namespace Soccer.Web.Data.Entities
         public string LogoPath { get; set; }
 
         public ICollection<GroupEntity> Groups { get; set; }
+
+        [Display(Name = "Logo")]
+        public string LogoFullPath => string.IsNullOrEmpty(LogoPath)
+         ? "https://SoccerWeb4.azurewebsites.net//images/noimage.png"
+         : $"https://SoccerWeb4.azurewebsites.net{LogoPath.Substring(1)}";
     }
 
 }
