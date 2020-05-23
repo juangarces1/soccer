@@ -3,14 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+           	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Soccer.Prism.Views.TournamentsPage"
              BackgroundColor="{StaticResource ColorBackgroud}"
 
              Title="{Binding Title}">
 
-    <StackLayout Padding="5">
-        <CollectionView ItemsSource="{Binding Tournaments}">
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="5">
+
+            <CollectionView ItemsSource="{Binding Tournaments}">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"/>
             </CollectionView.ItemsLayout>
@@ -55,4 +61,19 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="MovieTimer" 
+                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                    AbsoluteLayout.LayoutFlags="All"
+                	                    BackgroundColor="{StaticResource ColorAccent}"
+                	                    HorizontalOptions="Center"
+                	                    TextColor="{StaticResource ColorFontInverse}"
+                	                    IsVisible="{Binding IsRunning}"
+                	                    Title="Loading..."
+                	                    VerticalOptions="Center"
+                	                    ViewBoxWidth="80"
+                	                    ViewBoxHeight="80" />
+
+    </AbsoluteLayout>
 </ContentPage>
+
+
