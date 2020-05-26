@@ -31,4 +31,10 @@
     <item name="colorAccent">#38006A</item>
 
   </style>
+
+  <style name="Theme.Splash" parent="android:Theme">
+    <item name="android:windowBackground">@drawable/soccer_splash</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
 </resources>

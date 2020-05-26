@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Soccer.Common.Models;
 using Soccer.Web.Data;
 using Soccer.Web.Data.Entities;
 using Soccer.Web.Helpers;
+using Soccer.Web.Resources;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -11,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Soccer.Web.Controllers.API
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     [ApiController]
     public class PredictionsController : ControllerBase
@@ -34,12 +38,12 @@ namespace Soccer.Web.Controllers.API
             }
 
             CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
-            //Resource.Culture = cultureInfo;
+            Resource.Culture = cultureInfo;
 
             TournamentEntity tournament = await _context.Tournaments.FindAsync(request.TournamentId);
             if (tournament == null)
             {
-                return BadRequest();
+                return BadRequest(Resource.TournamentDoesntExists);
             }
 
             UserEntity userEntity = await _context.Users
@@ -57,7 +61,7 @@ namespace Soccer.Web.Controllers.API
                 .FirstOrDefaultAsync(u => u.Id == request.UserId.ToString());
             if (userEntity == null)
             {
-                return BadRequest();
+                return BadRequest(Resource.UserDoesntExists);
             }
 
             // Add precitions already done
@@ -92,4 +96,3 @@ namespace Soccer.Web.Controllers.API
         }
     }
 }
-

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soccer.Common", "Soccer.Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soccer.Web", "Soccer.Web\Soccer.Web.csproj", "{1C444888-B414-4974-9465-3E9B8792E28C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Prism", "Soccer.Prism\Soccer.Prism\Soccer.Prism.csproj", "{C7EC305D-10E7-4248-B88E-9A5CDE31452D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soccer.Prism", "Soccer.Prism\Soccer.Prism\Soccer.Prism.csproj", "{C7EC305D-10E7-4248-B88E-9A5CDE31452D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soccer.Prism.Android", "Soccer.Prism\Soccer.Prism.Android\Soccer.Prism.Android.csproj", "{C693F45C-EE96-4AA8-99D9-0A82F039735A}"
 EndProject
@@ -224,6 +224,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_ConfirmAddLanguageFile = True
+		RESX_AutoCreateNewLanguageFiles = True
+		RESX_NeutralResourcesLanguage = en-US
 		SolutionGuid = {34119796-137E-486F-8463-06157ADDFB31}
 	EndGlobalSection
 EndGlobal
